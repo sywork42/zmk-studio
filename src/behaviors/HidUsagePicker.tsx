@@ -19,6 +19,7 @@ import {
 } from "../hid-usages";
 import { useCallback, useMemo } from "react";
 import { ChevronDown } from "lucide-react";
+import { QwertyKeyboardPicker } from "./QwertyKeyboardPicker";
 
 export interface HidUsagePage {
   id: number;
@@ -115,6 +116,11 @@ export const HidUsagePicker = ({
   usagePages,
   onValueChanged,
 }: HidUsagePickerProps) => {
+  const showQwerty = useMemo(
+    () => usagePages.some((p) => p.id === 7),
+    [usagePages]
+  );
+
   const mods = useMemo(() => {
     let flags = value ? value >> 24 : 0;
 
@@ -148,6 +154,7 @@ export const HidUsagePicker = ({
   );
 
   return (
+    <div className="flex flex-col gap-2">
     <div className="flex gap-2 relative">
       {label && <Label id="hid-usage-picker">{label}:</Label>}
       <ComboBox
@@ -187,6 +194,10 @@ export const HidUsagePicker = ({
           </Checkbox>
         ))}
       </CheckboxGroup>
+    </div>
+    {showQwerty && (
+      <QwertyKeyboardPicker value={value} onKeySelected={selectionChanged} />
+    )}
     </div>
   );
 };

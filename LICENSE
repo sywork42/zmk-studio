@@ -187,7 +187,7 @@
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright [yyyy] [name of copyright owner]
+   Copyright 2024 The ZMK Contributors
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -200,3 +200,14 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+   Modifications Copyright 2026 Sy
+
+   The following modifications were made to the original Work:
+   - Added QwertyKeyboardPicker component: an interactive 104-key visual
+     keyboard displayed when assigning Key Press bindings, allowing keys
+     to be selected by clicking rather than using a dropdown. Symbol and
+     number keys show their shifted character as a secondary label;
+     clicking the shifted label applies a Left Shift modifier automatically.
+   - Integrated QwertyKeyboardPicker into HidUsagePicker so it appears
+     alongside the existing search ComboBox and modifier controls.
